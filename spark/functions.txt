@@ -1,0 +1,51 @@
+DataFrame API
+
+df.show(vertical=True)
+df.filter(condition)
+df.count()
+df.groupBy(cols)
+df.withColumn(name, expression)
+df.withColumnRenamed(curr_name, new_name)
+df.printSchema()
+df.join(df2, on, how)
+df.select(cols)
+df.where(condition)
+df.distinct()
+df.agg(agg_funcs)
+df.describe()
+df.union(df2)
+df.limit(n)
+df.orderBy(cols)
+
+SQL functions
+
+import pyspark.sql.functions as F
+
+F.col("name")
+F.col().isNull()
+F.col() ==. >, <, >=, <=, !=
+F.col().alias()
+F.col().isNotNull()
+F.col().between(from, to)
+F.col().isin()
+F.when(condition, then).when().otherwise()
+F.lit()
+F.to_date()
+F.date_formate(date, format)
+F.from_unix_time()
+
+SQL functions(aggregation and window)
+
+Aggregation functions:
+
+F.count(col)
+F.countDistinct(col)
+F.sum / F.min / F.max / F.avg
+F.first / F.last
+
+Window functions:
+
+w = Window.partitionBy(cols).orderBy(cols)
+F.row_number().over(w)
+F.lag(col).over(w)
+F.lead(col).ovew(w)
